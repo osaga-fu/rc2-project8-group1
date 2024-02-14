@@ -5,14 +5,14 @@ public class BookResponse {
     private String title;
     private String author;
     private String isbn;
-    private String section;
+    private String section_code;
 
-    public BookResponse(Long book_id, String title, String author, String isbn, String section) {
+    public BookResponse(Long book_id, String title, String author, String isbn, String section_code) {
         this.book_id = book_id;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
-        this.section = section;
+        this.section_code = section_code;
     }
 
     public Long getBook_id() {
@@ -47,11 +47,11 @@ public class BookResponse {
         this.isbn = isbn;
     }
 
-    public String getSection() {
-        return section;
+    public String getSectionCode() {
+        return section_code;
     }
 
-    public void setSection(String section) {
-        this.section = section;
+    public void setSection_code(String section_code) {
+        this.section_code = section_code;
     }
 }
