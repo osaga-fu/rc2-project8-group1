@@ -1,11 +1,10 @@
-import { render,fireEvent,screen } from '@testing-library/react';
-import {Searchbar} from '../components/Searchbar';
+import { render, fireEvent, screen } from "@testing-library/react";
+import { Searchbar } from "../components/Searchbar";
 
-test('no hay texto en la barra de búsqueda', ()=>{
-    render(<Searchbar/>)
+test("simula una búsqueda en la aplicación", () => {
+  render(<Searchbar />);
 
-
-const inputElement = screen.getPlaceholderText('');
-fireEvent.change(inputElement, {target: {value: 'search term'}});
-expect("");
+  const inputElement = screen.getByPlaceholderText("Buscar libro...");
+  fireEvent.change(inputElement, { target: { value: "Harry Potter" } });
+  expect(inputElement.value).toBe("Harry Potter");
 });
