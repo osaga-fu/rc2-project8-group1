@@ -15,28 +15,36 @@ export const List = () => {
     }
   };
   return (
-    <div className="listContainer">
-      <section className="searchContainer">
-        <button className="searchButton" onClick={handleBusqueda}>
-          <img
-            className="searchIcon"
-            src="../../../src/imgs/Search.svg"
-            alt="icono buscador"
-          />
+    <div className="bodyContainer">
+      <div className="sidebar">
+        <button className="buttonAddBook">
+          <img src="../../../src/imgs/Book Stack.svg" alt="Icono añadir" />
+          AÑADIR LIBRO
         </button>
-        <input
-          className="searchInput"
-          type="text"
-          value={busqueda}
-          onChange={(e) => setBusqueda(e.target.value)}
-          placeholder="Buscar libro..."
-        />
-      </section>
-      <ul>
-        {resultados.map((resultado) => (
-          <li key={resultado.id}>{resultado.titulo}</li>
-        ))}
-      </ul>
+      </div>
+      <div className="listContainer">
+        <section className="searchContainer">
+          <button className="searchButton" onClick={handleBusqueda}>
+            <img
+              className="searchIcon"
+              src="../../../src/imgs/Search.svg"
+              alt="icono buscador"
+            />
+          </button>
+          <input
+            className="searchInput"
+            type="text"
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+            placeholder="Buscar libro..."
+          />
+        </section>
+        <ul>
+          {resultados.map((resultado) => (
+            <li key={resultado.id}>{resultado.titulo}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
