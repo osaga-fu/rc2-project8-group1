@@ -1,0 +1,8 @@
+.listContainer {
+    width: 116rem;
+    background-color: var(--crema);
+    min-height: 70rem;
+    border-radius: 2rem;
+    padding: 5rem;
+    
+}

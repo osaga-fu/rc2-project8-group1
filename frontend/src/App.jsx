@@ -1,9 +1,11 @@
-import "./App.css";
+
+import { Home } from "./components/Home/Home";
 
 function App() {
-  return <>
-  
-  </>;
+  return (
+      <Home></Home>
+
+  );
 }
 
 export default App;
