@@ -2,22 +2,33 @@
   width: 116rem;
   background-color: var(--crema);
   min-height: 70rem;
-  border-radius: 2rem;
   padding: 5rem;
+  border-radius: 1rem;
 }
 
 .searchContainer {
     display: flex;
+    justify-content: center;
 }
 
 .searchButton {
   width: 6rem;
+  border-radius: 1rem 0 0 1rem;
 }
 
 .searchInput {
   width: 92rem;
+  border-radius: 0 1rem 1rem 0;
+  padding-top: 0.5rem;
+
 }
 
+.searchInput::placeholder{
+    color: var(--crema);
+    font-weight: bold;
+    font-size: 2.4rem;
+    
+}
 .searchButton,
 .searchInput {
   height: 6.4rem;
