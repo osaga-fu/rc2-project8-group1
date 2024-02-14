@@ -6,7 +6,7 @@ export const List = () => {
   const handleSearch = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/busqueda?query=${search}`
+        `http://localhost:8080/books?query=${search}`
       );
       const data = await response.json();
       setResults(data);
@@ -14,37 +14,47 @@ export const List = () => {
       console.error("Error al buscar", error);
     }
   };
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
   return (
-    <div className="bodyContainer">
-      <div className="sidebar">
-        <button className="buttonAddBook">
-          <img src="../../../src/imgs/Book Stack.svg" alt="Icono añadir" />
-          AÑADIR LIBRO
-        </button>
-      </div>
-      <div className="listContainer">
-        <section className="searchContainer">
-          <button className="searchButton" onClick={handleSearch}>
-            <img
-              className="searchIcon"
-              src="../../../src/imgs/Search.svg"
-              alt="icono buscador"
-            />
-          </button>
-          <input
-            className="searchInput"
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Buscar libro..."
+    <div className="listContainer">
+      <section className="searchContainer">
+        <button className="searchButton" onClick={handleSearch}>
+          <img
+            className="searchIcon"
+            src="../../../src/imgs/Search.svg"
+            alt="icono buscador"
           />
-        </section>
-        <ul>
-          {results.map((result) => (
-            <li key={result.book_id}>{result.title}</li>
-          ))}
-        </ul>
-      </div>
+        </button>
+        <input
+          className="searchInput"
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyPress={handleKeyPress}
+          placeholder="Buscar libro..."
+        />
+      </section>
+      <ul>
+        {results.map((result) => (
+          <>
+            <div className="list" key={result.book_id}>
+              <div className="leftPartList">
+                <li className="listTitle">{result.title}</li>
+                <li>{result.author}</li>
+              </div>
+              <div className="rightPartList">
+                <li>{result.isbn}</li>
+                <li>{result.section_code}</li>
+              </div>
+            </div>
+            <hr/>
+          </>
+        ))}
+      </ul>
     </div>
   );
 };

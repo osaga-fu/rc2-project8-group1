@@ -1,13 +1,15 @@
 import { Header } from "../Header/Header";
 import { List } from "../List/List";
-import  "./Home.css"
+import "./Home.css";
+import { Aside } from "../Aside/Aside";
+
 export const Home = () => {
   return (
     <>
-    
       <Header></Header>
       <div className="mainContainer">
-      <List></List>
+        <Aside></Aside>
+        <List></List>
       </div>
     </>
   );
