@@ -1,0 +1,53 @@
+.bodyContainer {
+  display: flex;
+  gap: 2rem;
+}
+  .buttonAddBook {
+  width: 26rem;
+  height: 6.4rem;
+  background-color: var(--verde-claro);
+  border: none;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  color: var(--crema);
+  font-size: 2.4rem;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.listContainer {
+  width: 116rem;
+  background-color: var(--crema);
+  min-height: 70rem;
+  padding: 5rem;
+  border-radius: 1rem;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.searchButton {
+  width: 6rem;
+  border-radius: 1rem 0 0 1rem;
+}
+
+.searchInput {
+  width: 92rem;
+  border-radius: 0 1rem 1rem 0;
+}
+
+.searchInput::placeholder,
+.searchInput {
+  color: var(--crema);
+  font-weight: bold;
+  font-size: 2.4rem;
+}
+.searchButton,
+.searchInput {
+  height: 6.4rem;
+  background-color: var(--marron);
+  border: none;
+}
