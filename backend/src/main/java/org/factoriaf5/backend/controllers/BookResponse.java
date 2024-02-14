@@ -47,11 +47,12 @@ public class BookResponse {
         this.isbn = isbn;
     }
 
-    public String getSectionCode() {
+    public String getSection_code() {
         return section_code;
     }
 
     public void setSection_code(String section_code) {
         this.section_code = section_code;
     }
+   
 }
