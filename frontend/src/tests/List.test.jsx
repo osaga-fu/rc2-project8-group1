@@ -1,8 +1,9 @@
 import { render, fireEvent, screen } from "@testing-library/react";
-import { Searchbar } from "../components/Searchbar";
+import { List } from "../components/List/List";
+import { test } from "vitest";
 
 test("simula una búsqueda en la aplicación", () => {
-  render(<Searchbar />);
+  render(<List />);
 
   const inputElement = screen.getByPlaceholderText("Buscar libro...");
   fireEvent.change(inputElement, { target: { value: "Harry Potter" } });

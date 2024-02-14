@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { test } from "vitest";
-import { Header } from "../components/Header";
+import { Header } from "../components/Header/Header";
 
 test("El panel no muestra el título", () => {
     render(<Header />);
@@ -11,7 +11,7 @@ test("El panel no muestra el título", () => {
 test("El panel muestra el título", () => {
     render(<Header />);
 
-    expect(screen.queryByText("Greenfield Library")).toBeInTheDocument();
+    expect(screen.queryByText("Greenfield library")).toBeInTheDocument();
 });
 
 
