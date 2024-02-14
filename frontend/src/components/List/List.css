@@ -1,29 +1,26 @@
 .listContainer {
-    width: 116rem;
-    background-color: var(--crema);
-    min-height: 70rem;
-    border-radius: 2rem;
-    padding: 5rem;
-    
-    
+  width: 116rem;
+  background-color: var(--crema);
+  min-height: 70rem;
+  border-radius: 2rem;
+  padding: 5rem;
+}
+
+.searchContainer {
+    display: flex;
 }
 
 .searchButton {
-   width: 6rem; 
-height: 6.4rem;
-background-color: var(--marron);
-border: none;
-padding: 0;
+  width: 6rem;
 }
 
-.searchIcon{
-    width: 4rem;
-}
 .searchInput {
-width: 92rem;
-height: 6.4rem;
-background-color: var(--marron);
-border: none;
+  width: 92rem;
 }
 
-
+.searchButton,
+.searchInput {
+  height: 6.4rem;
+  background-color: var(--marron);
+  border: none;
+}

@@ -16,17 +16,22 @@ export const List = () => {
   };
   return (
     <div className="listContainer">
-      <button className="searchButton" onClick={handleBusqueda}>
-        <img className= "searchIcon" src="../../../src/imgs/Search.svg" alt="icono buscador" />
-      </button>
-
-      <input
-        className="searchInput"
-        type="text"
-        value={busqueda}
-        onChange={(e) => setBusqueda(e.target.value)}
-        placeholder="Buscar libro..."
-      />
+      <section className="searchContainer">
+        <button className="searchButton" onClick={handleBusqueda}>
+          <img
+            className="searchIcon"
+            src="../../../src/imgs/Search.svg"
+            alt="icono buscador"
+          />
+        </button>
+        <input
+          className="searchInput"
+          type="text"
+          value={busqueda}
+          onChange={(e) => setBusqueda(e.target.value)}
+          placeholder="Buscar libro..."
+        />
+      </section>
       <ul>
         {resultados.map((resultado) => (
           <li key={resultado.id}>{resultado.titulo}</li>
