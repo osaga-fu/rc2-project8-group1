@@ -2,7 +2,7 @@
   display: flex;
   gap: 2rem;
 }
-  .buttonAddBook {
+.buttonAddBook {
   width: 26rem;
   height: 6.4rem;
   background-color: var(--verde-claro);
@@ -32,6 +32,7 @@
 .searchButton {
   width: 6rem;
   border-radius: 1rem 0 0 1rem;
+  cursor: pointer;
 }
 
 .searchInput {
@@ -50,4 +51,21 @@
   height: 6.4rem;
   background-color: var(--marron);
   border: none;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.listTitle{
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+.leftPartList,
+.rightPartList {
+  display: flex;
+  color: var(--negro);
+  font-size: 1.8rem;
+gap: 2rem;
 }
