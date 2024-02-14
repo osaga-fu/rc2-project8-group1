@@ -1,0 +1,13 @@
+.buttonAddBook {
+    width: 26rem;
+    height: 6.4rem;
+    background-color: var(--verde-oscuro);
+    border: none;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    color: var(--crema);
+    font-size: 2.4rem;
+    font-weight: bold;
+    justify-content: center;
+  }
