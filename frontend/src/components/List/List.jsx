@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "./List.css";
 export const List = () => {
-  const [busqueda, setBusqueda] = useState("");
-  const [resultados, setResultados] = useState([]);
-  const handleBusqueda = async () => {
+  const [search, setSearch] = useState("");
+  const [results, setResults] = useState([]);
+  const handleSearch = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/busqueda?query=${busqueda}`
+        `http://localhost:8080/busqueda?query=${search}`
       );
       const data = await response.json();
-      setResultados(data);
+      setResults(data);
     } catch (error) {
       console.error("Error al buscar", error);
     }
@@ -24,7 +24,7 @@ export const List = () => {
       </div>
       <div className="listContainer">
         <section className="searchContainer">
-          <button className="searchButton" onClick={handleBusqueda}>
+          <button className="searchButton" onClick={handleSearch}>
             <img
               className="searchIcon"
               src="../../../src/imgs/Search.svg"
@@ -34,14 +34,14 @@ export const List = () => {
           <input
             className="searchInput"
             type="text"
-            value={busqueda}
-            onChange={(e) => setBusqueda(e.target.value)}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             placeholder="Buscar libro..."
           />
         </section>
         <ul>
-          {resultados.map((resultado) => (
-            <li key={resultado.id}>{resultado.titulo}</li>
+          {results.map((result) => (
+            <li key={result.book_id}>{result.title}</li>
           ))}
         </ul>
       </div>
