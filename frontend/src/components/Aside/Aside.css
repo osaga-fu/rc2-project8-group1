@@ -1,13 +1,43 @@
-.buttonAddBook {
-    width: 26rem;
-    height: 6.4rem;
-    background-color: var(--verde-oscuro);
-    border: none;
-    border-radius: 1rem;
-    display: flex;
-    align-items: center;
-    color: var(--crema);
-    font-size: 2.4rem;
-    font-weight: bold;
-    justify-content: center;
-  }
+.buttonAddBook,
+.addForm button {
+  width: 26rem;
+  height: 6.4rem;
+  background-color: var(--verde-oscuro);
+  border: none;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  color: var(--crema);
+  font-size: 2.4rem;
+  font-weight: bold;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.p-dialog .p-dialog-content,
+.p-dialog .p-dialog-header {
+  background-color: var(--crema);
+}
+
+.addForm {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 4rem auto;
+  align-items: center;
+}
+
+.addForm input {
+  height: 4.4rem;
+  width: 80rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--marron);
+  padding: 1.5rem;
+}
+
+.addForm input::placeholder {
+  color: var(--crema);
+  font-weight: bold;
+  font-size: 2rem;
+}
