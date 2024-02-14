@@ -6,7 +6,7 @@ export const List = () => {
   const handleSearch = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/busqueda?query=${search}`
+        `http://localhost:8080/books?query=${search}`
       );
       const data = await response.json();
       setResults(data);
