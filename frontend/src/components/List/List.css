@@ -5,4 +5,25 @@
     border-radius: 2rem;
     padding: 5rem;
     
+    
 }
+
+.searchButton {
+   width: 6rem; 
+height: 6.4rem;
+background-color: var(--marron);
+border: none;
+padding: 0;
+}
+
+.searchIcon{
+    width: 4rem;
+}
+.searchInput {
+width: 92rem;
+height: 6.4rem;
+background-color: var(--marron);
+border: none;
+}
+
+
