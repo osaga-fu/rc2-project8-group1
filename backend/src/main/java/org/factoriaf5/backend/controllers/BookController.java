@@ -30,10 +30,10 @@ public class BookController {
     @PostMapping("/books")
     public BookResponse createBook(@RequestBody BookRequest request) {
         Book book = new Book(request.getBook_id(), request.getTitle(), request.getAuthor(), request.getIsbn(),
-                request.getSectionCode());
+                request.getSection_code());
         Book savedBook = repository.save(book);
         return new BookResponse(savedBook.getBook_id(), savedBook.getTitle(), savedBook.getAuthor(),
-                savedBook.getIsbn(), savedBook.getSectionCode());
+                savedBook.getIsbn(), savedBook.getSection_code());
     }
 
 }
