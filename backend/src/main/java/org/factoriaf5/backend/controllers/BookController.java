@@ -32,19 +32,20 @@ public class BookController {
 
     @PostMapping("/books")
     public BookResponse createBook(@RequestBody BookRequest request) {
-        Book book = new Book(request.getBook_id(), request.getTitle(), request.getAuthor(), request.getIsbn(),
-                request.getSection_code());
+        Book book = new Book(request.getBookId(), request.getTitle(), request.getAuthor(), request.getIsbn(),
+                request.getSectionCode());
         Book savedBook = repository.save(book);
-        return new BookResponse(savedBook.getBook_id(), savedBook.getTitle(), savedBook.getAuthor(),
-                savedBook.getIsbn(), savedBook.getSection_code());
+        return new BookResponse(savedBook.getBookId(), savedBook.getTitle(), savedBook.getAuthor(),
+                savedBook.getIsbn(), savedBook.getSectionCode());
     }
 
-     @GetMapping("/books/{id}")
+    @GetMapping("/books/{id}")
     public ResponseEntity<BookResponse> getBookById(@PathVariable Long id) {
         Optional<Book> optionalBook = repository.findById(id);
-        if (optionalBook.isPresent()){
+        if (optionalBook.isPresent()) {
             Book existingBook = optionalBook.get();
-            BookResponse bookResponse = new BookResponse(existingBook.getBook_id(), existingBook.getTitle(), existingBook.getAuthor(), existingBook.getIsbn(), existingBook.getSection_code());
+            BookResponse bookResponse = new BookResponse(existingBook.getBookId(), existingBook.getTitle(),
+                    existingBook.getAuthor(), existingBook.getIsbn(), existingBook.getSectionCode());
             return ResponseEntity.ok(bookResponse);
         } else {
             return ResponseEntity.notFound().build();
