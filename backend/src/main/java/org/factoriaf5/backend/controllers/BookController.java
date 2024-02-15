@@ -52,4 +52,15 @@ public class BookController {
     }
 
 
+     @GetMapping("/books/{id}")
+    public ResponseEntity<BookResponse> getBookById(@PathVariable Long id) {
+        Optional<Book> optionalBook = repository.findById(id);
+        if (optionalBook.isPresent()){
+            Book existingBook = optionalBook.get();
+            BookResponse bookResponse = new BookResponse(existingBook.getBook_id(), existingBook.getTitle(), existingBook.getAuthor(), existingBook.getIsbn(), existingBook.getSection_code());
+            return ResponseEntity.ok(bookResponse);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
