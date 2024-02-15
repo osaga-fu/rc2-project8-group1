@@ -27,7 +27,9 @@ public class BookController {
 
     @GetMapping("/books")
     public List<Book> searchBooks(@RequestParam("query") String query) {
-        return repository.searchBooks("%" + query + "%");
+        return repository
+                .findAllByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrIsbnContainingIgnoreCaseOrSectionCodeContainingIgnoreCase(
+                        query, query, query, query);
     }
 
     @PostMapping("/books")
