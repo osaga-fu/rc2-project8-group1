@@ -17,7 +17,7 @@ export const Aside = () => {
       if (response.ok) {
         console.log("solicitud exitosa");
       } else {
-        console.log("error enviar solicitud");
+        console.log("error enviar solicitud", await response.text());
       }
     } catch (error) {
       console.error("Error al buscar", error);
@@ -38,10 +38,10 @@ export const Aside = () => {
         className="addDialog"
       >
         <form className="addForm" onSubmit={handleSubmit}>
-          <input type="text" placeholder="Libro" />
-          <input type="text" placeholder="Autor" />
-          <input type="text" placeholder="ISBN" />
-          <input type="text" placeholder="Sección" />
+          <input type="text" name="title" placeholder="Libro" />
+          <input type="text" name="author" placeholder="Autor" />
+          <input type="text" name="isbn" placeholder="ISBN" />
+          <input type="text" name="section_code" placeholder="Sección" />
           <button type="submit">
             <img src="../../../src/imgs/Book Stack.svg" alt="Icono añadir" />
             ACEPTAR
