@@ -1,12 +1,16 @@
 package org.factoriaf5.backend.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.factoriaf5.backend.persistence.Book;
 import org.factoriaf5.backend.persistence.BooksRepository;
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,5 +39,17 @@ public class BookController {
         return new BookResponse(savedBook.getBook_id(), savedBook.getTitle(), savedBook.getAuthor(),
                 savedBook.getIsbn(), savedBook.getSection_code());
     }
+    @GetMapping("/books/{id}")
+    public ResponseEntity<BookResponse> getBookById(@PathVariable Long id){
+        Optional<Book> optionalBook = repository.findById(id);
+        if (optionalBook.isPresent()){
+            Book existingBook = optionalBook.get();
+            BookResponse bookResponse = new BookResponse(existingBook.getBook_id(), existingBook.getTitle(), existingBook.getAuthor(),existingBook.getIsbn(),existingBook.getSection_code());
+            return ResponseEntity.ok(bookResponse);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 }
