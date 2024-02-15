@@ -1,57 +1,38 @@
 package org.factoriaf5.backend.controllers;
 
 public class BookRequest {
-    private Long book_id;
+    private Long bookId;
     private String title;
     private String author;
     private String isbn;
-    private String section_code;
+    private String sectionCode;
 
-    public BookRequest(Long book_id, String title, String author, String isbn, String section_code) {
-        this.book_id = book_id;
-        this.title = title;
-        this.author = author;
-        this.isbn = isbn;
-        this.section_code = section_code;
-    }
-
-    public Long getBook_id() {
-        return book_id;
-    }
-
-    public void setBook_id(Long book_id) {
-        this.book_id = book_id;
+    public Long getBookId() {
+        return bookId;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getAuthor() {
         return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
+    public String getSectionCode() {
+        return sectionCode;
+    }
+
+    public BookRequest(Long bookId, String title, String author, String isbn, String sectionCode) {
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
         this.isbn = isbn;
+        this.sectionCode = sectionCode;
     }
 
-    public String getSection_code() {
-        return section_code;
-    }
-
-    public void setSection_code(String section_code) {
-        this.section_code = section_code;
-    }
 }
