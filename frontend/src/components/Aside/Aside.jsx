@@ -4,6 +4,27 @@ import { useState } from "react";
 
 export const Aside = () => {
   const [visible, setVisible] = useState(false);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    try {
+      const response = await fetch(`http://localhost:8080/books`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        console.log("solicitud exitosa");
+      } else {
+        console.log("error enviar solicitud");
+      }
+    } catch (error) {
+      console.error("Error al buscar", error);
+    }
+    setVisible(false);
+  };
+
   return (
     <div>
       <button className="buttonAddBook" onClick={() => setVisible(true)}>
@@ -16,16 +37,12 @@ export const Aside = () => {
         onHide={() => setVisible(false)}
         className="addDialog"
       >
-        <form className="addForm">
+        <form className="addForm" onSubmit={handleSubmit}>
           <input type="text" placeholder="Libro" />
           <input type="text" placeholder="Autor" />
           <input type="text" placeholder="ISBN" />
           <input type="text" placeholder="Sección" />
-          <button
-            label="Aceptar"
-            type="submit"
-            value="Create"
-          >
+          <button type="submit">
             <img src="../../../src/imgs/Book Stack.svg" alt="Icono añadir" />
             ACEPTAR
           </button>
