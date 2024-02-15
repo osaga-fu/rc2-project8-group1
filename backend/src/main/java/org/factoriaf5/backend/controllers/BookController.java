@@ -39,25 +39,14 @@ public class BookController {
         return new BookResponse(savedBook.getBook_id(), savedBook.getTitle(), savedBook.getAuthor(),
                 savedBook.getIsbn(), savedBook.getSection_code());
     }
+
     @GetMapping("/books/{id}")
-    public ResponseEntity<BookResponse> getBookById(@PathVariable Long id){
-        Optional<Book> optionalBook = repository.findById(id);
-        if (optionalBook.isPresent()){
-            Book existingBook = optionalBook.get();
-            BookResponse bookResponse = new BookResponse(existingBook.getBook_id(), existingBook.getTitle(), existingBook.getAuthor(),existingBook.getIsbn(),existingBook.getSection_code());
-            return ResponseEntity.ok(bookResponse);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-
-     @GetMapping("/books/{id}")
     public ResponseEntity<BookResponse> getBookById(@PathVariable Long id) {
         Optional<Book> optionalBook = repository.findById(id);
-        if (optionalBook.isPresent()){
+        if (optionalBook.isPresent()) {
             Book existingBook = optionalBook.get();
-            BookResponse bookResponse = new BookResponse(existingBook.getBook_id(), existingBook.getTitle(), existingBook.getAuthor(), existingBook.getIsbn(), existingBook.getSection_code());
+            BookResponse bookResponse = new BookResponse(existingBook.getBook_id(), existingBook.getTitle(),
+                    existingBook.getAuthor(), existingBook.getIsbn(), existingBook.getSection_code());
             return ResponseEntity.ok(bookResponse);
         } else {
             return ResponseEntity.notFound().build();
