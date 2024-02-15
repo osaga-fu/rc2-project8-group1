@@ -1,8 +1,13 @@
+import '@testing-library/jest-dom/vitest'
 import { afterEach } from 'vitest'
 import { cleanup } from '@testing-library/react'
-import '@testing-library/jest-dom/vitest'
+import { setupServer } from 'msw/node';
+import { handlers } from './handlers';
 
-// runs a clean after each test case (e.g. clearing jsdom)
+const server = setupServer(...handlers);
+beforeAll(() => server.listen());
 afterEach(() => {
   cleanup();
-})
+  server.resetHandlers();
+});
+afterAll(() => server.close());
