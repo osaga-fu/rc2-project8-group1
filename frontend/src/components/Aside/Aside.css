@@ -36,7 +36,8 @@
   padding: 1.5rem;
 }
 
-.addForm input::placeholder {
+.addForm input::placeholder,
+.addForm input {
   color: var(--crema);
   font-weight: bold;
   font-size: 2rem;
