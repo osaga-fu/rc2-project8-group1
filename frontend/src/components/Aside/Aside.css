@@ -1,3 +1,26 @@
+.errorMessage,
+.successMessage {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.errorMessage {
+  color: var(--rojo);
+}
+
+.successMessage {
+  color: var(--verde-oscuro);
+}
+
+.successInfo {
+  font-size: 1.7rem;
+  margin: 2rem 5rem;
+  color: var(--negro);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .buttonAddBook,
 .addForm button {
   width: 26rem;
@@ -23,7 +46,7 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  margin: 4rem auto;
+  margin: 3rem auto;
   align-items: center;
 }
 
