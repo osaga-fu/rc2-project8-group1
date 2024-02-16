@@ -39,7 +39,7 @@ public class BookController {
                 savedBook.getIsbn(), savedBook.getSection_code());
     }
 
-     @GetMapping("/books/{id}")
+@GetMapping("/books/{id}")
     public ResponseEntity<BookResponse> getBookById(@PathVariable Long id) {
         Optional<Book> optionalBook = repository.findById(id);
         if (optionalBook.isPresent()){
