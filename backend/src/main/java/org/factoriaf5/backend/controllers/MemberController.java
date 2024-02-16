@@ -41,7 +41,7 @@ public class MemberController {
                 savedMember.getLastName(), savedMember.getDni(), savedMember.getEmail());
     }
 
-    @GetMapping("/member/{id}")
+    @GetMapping("/members/{id}")
     public ResponseEntity<MemberResponse> getMemberById(@PathVariable Long id) {
         Optional<Member> optionalMember = respository.findById(id);
         if (optionalMember.isPresent()) {
