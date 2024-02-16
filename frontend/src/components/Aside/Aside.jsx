@@ -41,7 +41,7 @@ export const Aside = () => {
           <input type="text" name="title" placeholder="Libro" />
           <input type="text" name="author" placeholder="Autor" />
           <input type="text" name="isbn" placeholder="ISBN" />
-          <input type="text" name="section_code" placeholder="Sección" />
+          <input type="text" name="sectionCode" placeholder="Sección" />
           <button type="submit">
             <img src="../../../src/imgs/Book Stack.svg" alt="Icono añadir" />
             ACEPTAR

@@ -48,7 +48,7 @@ export const List = () => {
               </div>
               <div className="rightPartList">
                 <li>{result.isbn}</li>
-                <li>{result.section_code}</li>
+                <li>{result.sectionCode}</li>
               </div>
             </div>
             <hr/>
