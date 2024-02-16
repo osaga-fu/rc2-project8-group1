@@ -15,45 +15,45 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
 public class MemberController {
 
     private MembersRespository respository;
 
-    public MemberController(@Autowired MembersRespository respository){
+    public MemberController(@Autowired MembersRespository respository) {
         this.respository = respository;
     }
 
     @GetMapping("/members")
-    public List<Member> seaMembers(@RequestParam("query") String query){
+    public List<Member> searchMembers(@RequestParam("query") String query) {
         return respository.searchMembers("%" + query + "%");
     }
 
     @PostMapping("/members")
-    public MemberResponse createMember(@RequestBody MemberRequest request){
+    public MemberResponse createMember(@RequestBody MemberRequest request) {
         Member member = new Member(request.getMemberId(), request.getFirstName(), request.getLastName(),
-        request.getDni(), request.getEmail(), request.isLoaned());
+                request.getDni(), request.getEmail(), request.isLoaned());
         Member savedMember = respository.save(member);
         return new MemberResponse(savedMember.getMemberId(), savedMember.getFirstName(),
-        savedMember.getLastName(), savedMember.getDni(), savedMember.getEmail(),
-        savedMember.isLoaned());
+                savedMember.getLastName(), savedMember.getDni(), savedMember.getEmail(),
+                savedMember.isLoaned());
     }
 
-        @GetMapping("/member/{id}")
-        public ResponseEntity<MemberResponse> getMemberById(@PathVariable Long id) {    
+    @GetMapping("/member/{id}")
+    public ResponseEntity<MemberResponse> getMemberById(@PathVariable Long id) {
         Optional<Member> optionalMember = respository.findById(id);
-        if (optionalMember.isPresent()){
+        if (optionalMember.isPresent()) {
             Member existingMember = optionalMember.get();
-            MemberResponse memberResponse = new MemberResponse(existingMember.getMemberId(), existingMember.getFirstName(), 
-            existingMember.getLastName(), existingMember.getDni(), existingMember.getEmail(), existingMember.isLoaned());
+            MemberResponse memberResponse = new MemberResponse(existingMember.getMemberId(),
+                    existingMember.getFirstName(),
+                    existingMember.getLastName(), existingMember.getDni(), existingMember.getEmail(),
+                    existingMember.isLoaned());
             return ResponseEntity.ok(memberResponse);
 
-        } else{
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
-    
-    
+
 }

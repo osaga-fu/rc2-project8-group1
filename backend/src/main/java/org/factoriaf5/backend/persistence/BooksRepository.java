@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 public interface BooksRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT b FROM Book b WHERE lower (b.title) LIKE lower (:query)" +
-        "OR lower(b.author) LIKE lower(:query)" +
-        "OR lower(b.isbn) LIKE lower(:query)" +
-        "OR lower(b.section_code) LIKE lower(:query)" )
-        List<Book> searchBooks(String query);
+            "OR lower(b.author) LIKE lower(:query)" +
+            "OR lower(b.isbn) LIKE lower(:query)" +
+            "OR lower(b.section_code) LIKE lower(:query)")
+    List<Book> searchBooks(String query);
 }
