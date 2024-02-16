@@ -3,7 +3,6 @@ package org.factoriaf5.backend.persistence;
 import java.util.List;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,7 +20,7 @@ public class Book {
     private String sectionCode;
     private boolean loaned;
 
-    @OneToMany(targetEntity = Loan.class, fetch = FetchType.LAZY)
+    @OneToMany
     private List<Loan> loans;
 
     public Long getBookId() {

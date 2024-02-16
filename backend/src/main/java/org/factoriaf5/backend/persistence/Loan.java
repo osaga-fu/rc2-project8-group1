@@ -1,16 +1,27 @@
 package org.factoriaf5.backend.persistence;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.MapsId;
+
 
 @Entity
-@Table(name = "loans")
 public class Loan {
 
     private String loanData;
     private String returnData;
+
+    @EmbeddedId
+    private LoanId id;
+
+    @ManyToOne
+    @MapsId("bookId")
+    private Book book;
+
+    @ManyToOne
+    @MapsId("memberId")
+    private Member member;
     
     public Loan() {
     }
@@ -21,14 +32,6 @@ public class Loan {
         this.book = book;
         this.member = member;
     }
-
-    @ManyToOne(targetEntity = Book.class)
-    @JoinColumn(name = "book_id")
-    private Book book;
-
-    @ManyToOne(targetEntity = Member.class)
-    @JoinColumn(name = "member_id")
-    private Member member;
 
     public String getLoanData() {
         return loanData;

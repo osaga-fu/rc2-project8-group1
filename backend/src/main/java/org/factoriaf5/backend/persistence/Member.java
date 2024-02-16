@@ -2,7 +2,6 @@ package org.factoriaf5.backend.persistence;
 
 import java.util.List;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,7 +19,7 @@ public class Member {
     private String dni;
     private String email;
 
-    @OneToMany(targetEntity = Loan.class, fetch = FetchType.LAZY)
+    @OneToMany
     private List<Loan> loans;
 
     public Member() {
