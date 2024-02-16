@@ -4,6 +4,10 @@ import { useState } from "react";
 
 export const Aside = () => {
   const [visible, setVisible] = useState(false);
+  const [showForm, setShowForm] = useState(true);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -15,14 +19,22 @@ export const Aside = () => {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        console.log("solicitud exitosa");
+        const responseData = await response.json();
+        setSuccessMessage(
+          `Libro agregado con éxito: ${responseData.title} ${responseData.author}`
+        );
+        setErrorMessage("");
+        setShowForm(false);
       } else {
-        console.log("error enviar solicitud");
+        setErrorMessage("Error al agregar el libro");
+        setSuccessMessage("");
       }
     } catch (error) {
       console.error("Error al buscar", error);
+      setErrorMessage("Error al agregar el libro");
+      setSuccessMessage("");
     }
-    setVisible(false);
+    setVisible(true);
   };
 
   return (
@@ -34,19 +46,27 @@ export const Aside = () => {
       <Dialog
         visible={visible}
         style={{ width: "50vw" }}
-        onHide={() => setVisible(false)}
+        onHide={() => {
+          setVisible(false);
+          setSuccessMessage("");
+          setErrorMessage("");
+        }}
         className="addDialog"
       >
-        <form className="addForm" onSubmit={handleSubmit}>
-          <input type="text" placeholder="Libro" />
-          <input type="text" placeholder="Autor" />
-          <input type="text" placeholder="ISBN" />
-          <input type="text" placeholder="Sección" />
-          <button type="submit">
-            <img src="../../../src/imgs/Book Stack.svg" alt="Icono añadir" />
-            ACEPTAR
-          </button>
-        </form>
+        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
+        {successMessage && <p className="successMessage">{successMessage}</p>}
+        {showForm && (
+          <form className="addForm" onSubmit={handleSubmit}>
+            <input type="text" name="title" placeholder="Libro" />
+            <input type="text" name="author" placeholder="Autor" />
+            <input type="text" name="isbn" placeholder="ISBN" />
+            <input type="text" name="sectionCode" placeholder="Sección" />
+            <button type="submit">
+              <img src="../../../src/imgs/Book Stack.svg" alt="Icono añadir" />
+              ACEPTAR
+            </button>
+          </form>
+        )}
       </Dialog>
     </div>
   );
