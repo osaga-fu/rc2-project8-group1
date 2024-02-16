@@ -6,15 +6,13 @@ public class MemberResponse {
     private String lastName;
     private String dni;
     private String email;
-    private boolean loaned;
 
-    public MemberResponse(Long memberId, String firstName, String lastName, String dni, String email, boolean loaned) {
+    public MemberResponse(Long memberId, String firstName, String lastName, String dni, String email) {
         this.memberId = memberId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dni = dni;
         this.email = email;
-        this.loaned = loaned;
     }
 
     public Long getMemberId() {
@@ -35,10 +33,6 @@ public class MemberResponse {
 
     public String getEmail() {
         return email;
-    }
-
-    public boolean isLoaned() {
-        return loaned;
     }
 
 }

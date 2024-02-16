@@ -27,17 +27,18 @@ public class MemberController {
 
     @GetMapping("/members")
     public List<Member> searchMembers(@RequestParam("query") String query) {
-        return respository.searchMembers("%" + query + "%");
+        return respository
+                .findAllByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrDniContainingIgnoreCaseOrEmailContainingIgnoreCase(
+                        query, query, query, query);
     }
 
     @PostMapping("/members")
     public MemberResponse createMember(@RequestBody MemberRequest request) {
         Member member = new Member(request.getMemberId(), request.getFirstName(), request.getLastName(),
-                request.getDni(), request.getEmail(), request.isLoaned());
+                request.getDni(), request.getEmail());
         Member savedMember = respository.save(member);
         return new MemberResponse(savedMember.getMemberId(), savedMember.getFirstName(),
-                savedMember.getLastName(), savedMember.getDni(), savedMember.getEmail(),
-                savedMember.isLoaned());
+                savedMember.getLastName(), savedMember.getDni(), savedMember.getEmail());
     }
 
     @GetMapping("/member/{id}")
@@ -47,8 +48,7 @@ public class MemberController {
             Member existingMember = optionalMember.get();
             MemberResponse memberResponse = new MemberResponse(existingMember.getMemberId(),
                     existingMember.getFirstName(),
-                    existingMember.getLastName(), existingMember.getDni(), existingMember.getEmail(),
-                    existingMember.isLoaned());
+                    existingMember.getLastName(), existingMember.getDni(), existingMember.getEmail());
             return ResponseEntity.ok(memberResponse);
 
         } else {
