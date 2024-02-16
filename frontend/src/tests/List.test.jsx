@@ -10,12 +10,19 @@ const server = setupServer(...handlers);
 test("realiza una búsqueda y muestra los resultados", async () => {
   render(<List />);
 
-  const input = screen.getAllByPlaceholderText('Buscar libro...');
-  userEvent.type(input, 'harry');
-  const button = screen.getByRole('button', {name: 'search'});
-  userEvent.click(button)=screen.getByRole('button', {name: 'searchButton'});
+  const input = screen.getByPlaceholderText("Buscar libro...");
+  userEvent.type(input, "harry");
+  const button = screen.getByAltText("icono buscador");
+
   userEvent.click(button);
 
-  const bookTitle = await screen.findByText('Harry Potter y...');
-  expect(bookTitle).toBeInTheDocument();
+  expect(
+    await screen.findByText(/Harry Potter y la Piedra Filosofal/)
+  ).toBeInTheDocument();
+  expect(
+    screen.getByText(/Harry Potter y el Prisionero de Azkaban/)
+  ).toBeInTheDocument();
+  expect(
+    screen.getByText(/Harry Potter y la Cámara de los Secretos/)
+  ).toBeInTheDocument();
 });

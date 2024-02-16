@@ -8,8 +8,9 @@ export const List = () => {
       const response = await fetch(
         `http://localhost:8080/books?query=${search}`
       );
+      
       const data = await response.json();
-      setResults(data);
+      setResults(data.results);
     } catch (error) {
       console.error("Error al buscar", error);
     }
@@ -22,7 +23,7 @@ export const List = () => {
   return (
     <div className="listContainer">
       <section className="searchContainer">
-        <button className="searchButton" onClick={handleSearch}>
+        <button name="searchButton" className="searchButton" onClick={handleSearch}>
           <img
             className="searchIcon"
             src="../../../src/imgs/Search.svg"

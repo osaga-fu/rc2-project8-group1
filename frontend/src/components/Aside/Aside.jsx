@@ -22,7 +22,7 @@ export const Aside = () => {
     } catch (error) {
       console.error("Error al buscar", error);
     }
-    setVisible(false);
+    setVisible(true);
   };
 
   return (
@@ -37,6 +37,7 @@ export const Aside = () => {
         onHide={() => setVisible(false)}
         className="addDialog"
       >
+          p
         <form className="addForm" onSubmit={handleSubmit}>
           <input type="text" name="title" placeholder="Libro" />
           <input type="text" name="author" placeholder="Autor" />
