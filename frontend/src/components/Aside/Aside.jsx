@@ -12,6 +12,10 @@ export const Aside = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
+    if (!data.title || !data.author || !data.isbn || !data.sectionCode) {
+      setErrorMessage("Error al agregar el libro");
+      return;
+    }
     try {
       const response = await fetch(`http://localhost:8080/books`, {
         method: "POST",
