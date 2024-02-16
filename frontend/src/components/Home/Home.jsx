@@ -6,10 +6,15 @@ import { Aside } from "../Aside/Aside";
 export const Home = () => {
   return (
     <>
-      <Header></Header>
       <div className="mainContainer">
-        <Aside></Aside>
-        <List></List>
+      <Aside></Aside>
+        <div className="section">
+          <div className="sectionButtons">
+            <button className="bgCream">Catálogo</button>
+            <button className="bgGreen">Socios</button>
+          </div>
+          <List />
+        </div>
       </div>
     </>
   );

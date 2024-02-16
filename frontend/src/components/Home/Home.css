@@ -2,4 +2,32 @@
     display: flex;
     justify-content: center;
     gap: 4rem;
+    margin-top: 8rem;
+}
+
+.sectionButtons{
+    display: flex;
+    justify-content: end;
+    margin-right: 6rem;
+    gap: 1rem;
+    position: relative;
+    top: 1rem;
+    z-index: -100;
+}
+
+.sectionButtons button{
+    padding: 1rem 2.5rem 1.5rem 2.5rem;
+    font-size: 2.5rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+.bgGreen{
+    background-color: var(--verde-oscuro);
+    color: var(--crema);
+}
+
+.bgCream{
+    background-color: var(--crema);
+    color: var(--negro);
 }

@@ -5,8 +5,8 @@ import { Members } from "./components/Members/Members";
 function App() {
   return (
     <>
-      {/* <Home></Home> */}
-      <Members/>
+      {<Home></Home>}
+      {/* <Members/> */}
     </>
   );
 }

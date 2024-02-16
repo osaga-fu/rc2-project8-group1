@@ -8,8 +8,14 @@ export const Members = () => {
       <Header></Header>
       <div className="mainContainer">
         <Aside></Aside>
-        <ListMembers/>
+        <div className="section">
+          <div className="sectionButtons">
+            <button className="bgGreen">Catálogo</button>
+            <button className="bgCream">Socios</button>
+          </div>
+          <ListMembers />
+        </div>
       </div>
     </>
-  )
-}
+  );
+};
