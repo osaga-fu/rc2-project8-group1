@@ -16,6 +16,7 @@ public class Book {
     private String author;
     private String isbn;
     private String sectionCode;
+    private boolean loaned;
 
     public Long getBookId() {
         return bookId;
@@ -57,12 +58,21 @@ public class Book {
         this.sectionCode = sectionCode;
     }
 
-    public Book(Long bookId, String title, String author, String isbn, String sectionCode) {
+    public boolean isLoaned() {
+        return loaned;
+    }
+
+    public void setLoaned(boolean loaned) {
+        this.loaned = loaned;
+    }
+
+    public Book(Long bookId, String title, String author, String isbn, String sectionCode, boolean loaned) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.sectionCode = sectionCode;
+        this.loaned = loaned;
     }
 
     public Book() {
