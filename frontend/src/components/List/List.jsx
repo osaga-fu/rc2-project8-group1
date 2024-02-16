@@ -40,19 +40,19 @@ export const List = () => {
       </section>
       <ul>
         {results.map((result) => (
-          <>
-            <div className="list" key={result.book_id}>
+          <div key={result.book_id}>
+            <div className="list">
               <div className="leftPartList">
                 <li className="listTitle">{result.title}</li>
                 <li>{result.author}</li>
               </div>
               <div className="rightPartList">
                 <li>{result.isbn}</li>
-                <li>{result.section_code}</li>
+                <li>{result.sectionCode}</li>
               </div>
             </div>
             <hr/>
-          </>
+          </div>
         ))}
       </ul>
     </div>
