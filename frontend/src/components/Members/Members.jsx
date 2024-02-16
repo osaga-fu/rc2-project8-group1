@@ -5,7 +5,7 @@ import { ListMembers } from "../ListMembers/ListMembers";
 export const Members = () => {
   return (
     <>
-      <Header></Header>
+      
       <div className="mainContainer">
         <Aside></Aside>
         <div className="section">
