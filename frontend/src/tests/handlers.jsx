@@ -1,21 +1,15 @@
-import {rest} from 'msw';
+import { http, HttpResponse } from "msw";
 
 export const handlers = [
-    rest.get('/api/searchbooks', (req, res, ctx)=>{
-        console.log(req);
-        const query = req.url.searchParams.get('q');
-        if(query === 'harry'){
-
-            return res(
-                ctx.json([
-                    {id: 1, title: 'Book 1'},
-                    {id: 2, title: 'Book 2'}
-                ])
-            );
-        } else {
-            return res(
-                ctx.json([])
-            );
-        }
-    })
+  // capture "GET /greeting" requests
+  http.get("http://localhost:8080/books?query=harry", () => {
+    // respond using a mocked JSON body
+    return HttpResponse.json({
+      results: [
+        { title: "Harry Potter y la Piedra Filosofal" },
+        { title: "Harry Potter y el Prisionero de Azkaban" },
+        { title: "Harry Potter y la Cámara de los Secretos" },
+      ],
+    });
+  }),
 ];

@@ -1,10 +1,9 @@
 import { Header } from "../Header/Header";
-import { List } from "../List/List";
-import "./Home.css";
+import "../Home/Home.css";
 import { Aside } from "../Aside/Aside";
+import { ListMembers } from "../ListMembers/ListMembers";
 import { Link } from "react-router-dom";
-
-export const Home = () => {
+export const Members = () => {
   return (
     <>
       <div className="mainContainer">
@@ -12,13 +11,13 @@ export const Home = () => {
         <div className="section">
           <div className="sectionButtons">
             <Link to={"/"}>
-              <button className="bgCream">Catálogo</button>
+              <button className="bgGreen">Catálogo</button>
             </Link>
             <Link to={"/members"}>
-              <button className="bgGreen">Socios</button>
+              <button className="bgCream">Socios</button>
             </Link>
           </div>
-          <List />
+          <ListMembers />
         </div>
       </div>
     </>

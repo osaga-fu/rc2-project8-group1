@@ -37,6 +37,9 @@
   cursor: pointer;
 }
 
+.buttonAddBook{
+  margin-top: 5.5rem;
+}
 .p-dialog .p-dialog-content,
 .p-dialog .p-dialog-header {
   background-color: var(--crema);

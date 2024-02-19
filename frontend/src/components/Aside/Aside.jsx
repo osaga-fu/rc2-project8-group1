@@ -1,6 +1,7 @@
 import { Dialog } from "primereact/dialog";
 import "./Aside.css";
 import { useState } from "react";
+import { Header } from "../Header/Header";
 
 export const Aside = () => {
   const [visible, setVisible] = useState(false);
@@ -43,6 +44,7 @@ export const Aside = () => {
 
   return (
     <div>
+      <Header></Header>
       <button className="buttonAddBook" onClick={() => setVisible(true)}>
         <img src="../../../src/imgs/Book Stack.svg" alt="Icono añadir" />
         AÑADIR LIBRO
