@@ -1,10 +1,12 @@
 package org.factoriaf5.backend.persistence;
 
 import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 
 @Entity
 @Table(name = "books")
@@ -16,7 +18,10 @@ public class Book {
     private String author;
     private String isbn;
     private String sectionCode;
+    @Column(columnDefinition = "boolean default false")
     private boolean loaned;
+
+
 
     public Long getBookId() {
         return bookId;

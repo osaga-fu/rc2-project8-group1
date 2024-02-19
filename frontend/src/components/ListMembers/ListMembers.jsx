@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../List/List.css";
 
-export const ListMembers= () => {
+export const ListMembers = () => {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const handleSearch = async () => {
@@ -9,7 +9,7 @@ export const ListMembers= () => {
       const response = await fetch(
         `http://localhost:8080/members?query=${search}`
       );
-      
+
       const data = await response.json();
       setResults(data);
     } catch (error) {
@@ -24,7 +24,11 @@ export const ListMembers= () => {
   return (
     <div className="listContainer">
       <section className="searchContainer">
-        <button name="searchButton" className="searchButton" onClick={handleSearch}>
+        <button
+          name="searchButton"
+          className="searchButton"
+          onClick={handleSearch}
+        >
           <img
             className="searchIcon"
             src="../../../src/imgs/Search.svg"
@@ -41,7 +45,6 @@ export const ListMembers= () => {
         />
       </section>
       <ul>
-       
         {results.map((result) => (
           <div key={result.memberId}>
             <div className="list">
@@ -54,7 +57,7 @@ export const ListMembers= () => {
                 <li>{result.email}</li>
               </div>
             </div>
-            <hr/>
+            <hr />
           </div>
         ))}
       </ul>

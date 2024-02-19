@@ -1,4 +1,3 @@
-
 import { List } from "../List/List";
 import "./Home.css";
 import { Aside } from "../Aside/Aside";

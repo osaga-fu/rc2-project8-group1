@@ -86,7 +86,6 @@ export const Aside = () => {
         AÑADIR LIBRO
       </button>
       <Dialog
-
         visible={visibleBooks}
         style={{ width: "50vw" }}
         onHide={() => {
@@ -96,7 +95,9 @@ export const Aside = () => {
         }}
         className="addDialog"
       >
-        {errorMessageBooks && <p className="errorMessage">{errorMessageBooks}</p>}
+        {errorMessageBooks && (
+          <p className="errorMessage">{errorMessageBooks}</p>
+        )}
         {successMessageBooks && (
           <>
             <p className="successMessage">¡Libro agregado con éxito!</p>
@@ -129,44 +130,47 @@ export const Aside = () => {
         AÑADIR SOCIO
       </button>
       <Dialog
-
-visible={visibleMembers}
-style={{ width: "50vw" }}
-onHide={() => {
-  setVisibleMembers(false);
-  setSuccessMessageMembers("");
-  setErrorMessageMembers("");
-}}
-className="addDialog"
->
-{errorMessageMembers && <p className="errorMessage">{errorMessageMembers}</p>}
-{successMessageMembers && (
-  <>
-    <p className="successMessage">¡Socio agregado con éxito!</p>
-    <div className="successInfo">
-      <p>
-        <strong> {successMessageMembers.split(",")[0]}</strong>
-      </p>
-      <p>{successMessageMembers.split(",")[1]}</p>
-      <p>{successMessageMembers.split(",")[2]}</p>
-      <p>{successMessageMembers.split(",")[3]}</p>
-    </div>
-  </>
-)}
-{showFormMembers && (
-  <form className="addForm" onSubmit={handleSubmitMembers}>
-    <input type="text" name="firstName" placeholder="Nombre" />
-    <input type="text" name="lastName" placeholder="Apellidos" />
-    <input type="text" name="dni" placeholder="DNI" />
-    <input type="text" name="email" placeholder="Email" />
-    <button type="submit">
-      <img src="../../../src/imgs/User Account.svg" alt="Icono añadir" />
-      ACEPTAR
-    </button>
-  </form>
-)}
-</Dialog>
+        visible={visibleMembers}
+        style={{ width: "50vw" }}
+        onHide={() => {
+          setVisibleMembers(false);
+          setSuccessMessageMembers("");
+          setErrorMessageMembers("");
+        }}
+        className="addDialog"
+      >
+        {errorMessageMembers && (
+          <p className="errorMessage">{errorMessageMembers}</p>
+        )}
+        {successMessageMembers && (
+          <>
+            <p className="successMessage">¡Socio agregado con éxito!</p>
+            <div className="successInfo">
+              <p>
+                <strong> {successMessageMembers.split(",")[0]}</strong>
+              </p>
+              <p>{successMessageMembers.split(",")[1]}</p>
+              <p>{successMessageMembers.split(",")[2]}</p>
+              <p>{successMessageMembers.split(",")[3]}</p>
+            </div>
+          </>
+        )}
+        {showFormMembers && (
+          <form className="addForm" onSubmit={handleSubmitMembers}>
+            <input type="text" name="firstName" placeholder="Nombre" />
+            <input type="text" name="lastName" placeholder="Apellidos" />
+            <input type="text" name="dni" placeholder="DNI" />
+            <input type="text" name="email" placeholder="Email" />
+            <button type="submit">
+              <img
+                src="../../../src/imgs/User Account.svg"
+                alt="Icono añadir"
+              />
+              ACEPTAR
+            </button>
+          </form>
+        )}
+      </Dialog>
     </div>
   );
 };
-
