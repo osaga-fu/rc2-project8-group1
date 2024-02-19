@@ -1,63 +1,44 @@
 package org.factoriaf5.backend.persistence;
 
+import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
-
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "loans")
 public class Loan {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long loanId;
-    private String loanDate;
-    private String returnDate;
-
-   
+    private Long id;
 
     @ManyToOne
-    @MapsId("bookId")
+    @JoinColumn(name = "book_id")
     private Book book;
 
     @ManyToOne
-    @MapsId("memberId")
+    @JoinColumn(name = "member_id")
     private Member member;
 
-    public Loan() {
+    @Column(name = "loan_date")
+    private LocalDate loanDate;
+
+    @Column(name= "return_date")
+    private LocalDate returnDate;
+
+    public Long getId() {
+        return id;
     }
 
-    public Loan(Long loanId, String loanDate, String returnDate) {
-        this.loanId = loanId;
-        this.loanDate = loanDate;
-        this.returnDate = returnDate;
-    }
-
-    public Long getLoanId() {
-        return loanId;
-    }
-
-    public void setLoanId(Long loanId) {
-        this.loanId = loanId;
-    }
-
-    public String getLoanDate() {
-        return loanDate;
-    }
-
-    public void setLoanDate(String loanDate) {
-        this.loanDate = loanDate;
-    }
-
-    public String getReturnDate() {
-        return returnDate;
-    }
-
-    public void setReturnDate(String returnDate) {
-        this.returnDate = returnDate;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Book getBook() {
@@ -75,7 +56,4 @@ public class Loan {
     public void setMember(Member member) {
         this.member = member;
     }
-    
-    
 }
-    

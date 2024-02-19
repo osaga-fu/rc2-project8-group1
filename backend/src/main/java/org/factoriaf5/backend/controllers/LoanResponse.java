@@ -1,26 +1,51 @@
 package org.factoriaf5.backend.controllers;
 
-
+import java.time.LocalDate;
 
 public class LoanResponse {
+
     private Long loanId;
-    private String loanDate;
-    private String returnDate;
+    private LocalDate loanDate;
+    private LocalDate returnDate;
+    private Long bookId;
+    private Long memberId;
+    
     public Long getLoanId() {
         return loanId;
     }
-    public String getLoanDate() {
+    public void setLoanId(Long loanId) {
+        this.loanId = loanId;
+    }
+    public LocalDate getLoanDate() {
         return loanDate;
     }
-    public String getReturnDate() {
+    public void setLoanDate(LocalDate loanDate) {
+        this.loanDate = loanDate;
+    }
+    public LocalDate getReturnDate() {
         return returnDate;
     }
-    public LoanResponse(Long loanId, String loanDate, String returnDate) {
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
+    }
+    public Long getBookId() {
+        return bookId;
+    }
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
+    }
+    public Long getMemberId() {
+        return memberId;
+    }
+    public void setMemberId(Long memberId) {
+        this.memberId = memberId;
+    }
+    public LoanResponse(Long loanId, LocalDate loanDate, LocalDate returnDate, Long bookId, Long memberId) {
         this.loanId = loanId;
         this.loanDate = loanDate;
         this.returnDate = returnDate;
+        this.bookId = bookId;
+        this.memberId = memberId;
     }
-    public LoanResponse() {
-    }
-
+    
 }
