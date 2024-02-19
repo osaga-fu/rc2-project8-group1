@@ -9,8 +9,8 @@ import jakarta.persistence.MapsId;
 @Entity
 public class Loan {
 
-    private String loanData;
-    private String returnData;
+    private String loanDate;
+    private String returnDate;
 
     @EmbeddedId
     private LoanId id;
@@ -23,30 +23,39 @@ public class Loan {
     @MapsId("memberId")
     private Member member;
     
-    public Loan() {
-    }
-
-    public Loan(String loanData, String returnData, Book book, Member member) {
-        this.loanData = loanData;
-        this.returnData = returnData;
+    public Loan(String loanDate, String returnDate, LoanId id, Book book, Member member) {
+        this.loanDate = loanDate;
+        this.returnDate = returnDate;
+        this.id = id;
         this.book = book;
         this.member = member;
     }
 
-    public String getLoanData() {
-        return loanData;
+    public Loan() {
     }
 
-    public void setLoanData(String loanData) {
-        this.loanData = loanData;
+    public String getLoanDate() {
+        return loanDate;
     }
 
-    public String getReturnData() {
-        return returnData;
+    public void setLoanDate(String loanDate) {
+        this.loanDate = loanDate;
     }
 
-    public void setReturnData(String returnData) {
-        this.returnData = returnData;
+    public String getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(String returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public LoanId getId() {
+        return id;
+    }
+
+    public void setId(LoanId id) {
+        this.id = id;
     }
 
     public Book getBook() {
@@ -65,3 +74,4 @@ public class Loan {
         this.member = member;
     }
 }
+    
