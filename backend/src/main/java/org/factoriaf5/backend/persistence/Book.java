@@ -1,10 +1,12 @@
 package org.factoriaf5.backend.persistence;
 
+import java.util.List;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 @Table(name = "books")
@@ -17,6 +19,9 @@ public class Book {
     private String isbn;
     private String sectionCode;
     private boolean loaned;
+
+    @OneToMany
+    private List<Loan> loans;
 
     public Long getBookId() {
         return bookId;
