@@ -43,6 +43,7 @@ public class MemberController {
 
     @GetMapping("/members/{id}")
     public ResponseEntity<MemberResponse> getMemberById(@PathVariable Long id) {
+        @SuppressWarnings("null")
         Optional<Member> optionalMember = respository.findById(id);
         if (optionalMember.isPresent()) {
             Member existingMember = optionalMember.get();
