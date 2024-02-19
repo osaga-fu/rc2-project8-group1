@@ -1,6 +1,8 @@
 package org.factoriaf5.backend.persistence;
 
 import java.util.List;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,8 +21,8 @@ public class Member {
     private String dni;
     private String email;
 
-    @OneToMany
-    private List<Loan> loans;
+    @OneToMany(mappedBy="member")
+    private Set<Loan> loans;
 
     public Member() {
     }

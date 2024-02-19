@@ -1,42 +1,35 @@
 package org.factoriaf5.backend.controllers;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.factoriaf5.backend.persistence.Book;
 import org.factoriaf5.backend.persistence.Loan;
-import org.factoriaf5.backend.persistence.LoanId;
 import org.factoriaf5.backend.persistence.LoansRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
+
+@RestController
+@RequestMapping
 public class LoanController {
 
-    private LoansRepository repository;
-    
-    public LoanController(@Autowired LoansRepository repository){
-        this.repository = repository;
+    private final LoansRepository repository;
+
+    public LoanController(@Autowired LoansRepository loanRepository) {
+        this.repository = loanRepository;
     }
 
-    @GetMapping("/loans/{id}")
-    public ResponseEntity<LoanResponse> getLoanById (@PathVariable LoandId id){
-        Optional<Loan> optionalLoan = repository.findById(LoanId);
-        if (optionalLoan.isPresent()) {
-            Loan existingLoan = optionalLoan.get();
-            LoanResponse loanResponse = new LoanResponse(existingLoan.getLoanId(), existingL.getTitle(),
-                    existingLoan.get(), existingLoan.get(), );
-            return ResponseEntity.ok(loanResponse);
-        } else {
-            return ResponseEntity.notFound().build();
+    @GetMapping("/loans")
+    public List<LoanResponse> getLoans() {
+        List<LoanResponse> loans = new ArrayList<LoanResponse>();
+        List<Loan> loansInDatabase = repository.findAll();
+        for (Loan loan : loansInDatabase) {
+            loans.add(new LoanResponse(loan.getLoanDate(), loan.getReturnDate(), loan.getBookId(),
+                    loan.getMember().getMemberId()));
         }
+        return loans;
     }
-     
-    @PostMapping("/laons")
-    public LoanResponse createLoan(@RequestBody LoanRequest request) {
-        Loan loan = new Loan (request.get(), request.get(), request.is());
-        Loan savedLoan = repository.save(loan);
-        return new LoanResponse(savedLoan.get(), savedLoan.get(), savedLoan.get());
-}
+
 }

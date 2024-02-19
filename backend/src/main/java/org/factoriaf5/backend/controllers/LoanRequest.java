@@ -1,32 +1,43 @@
 package org.factoriaf5.backend.controllers;
 
-import org.factoriaf5.backend.persistence.LoanId;
+import java.time.LocalDate;
 
 public class LoanRequest {
-    private LoanId id;
-    private String loanDate;
-    private String returnDate;
-   
-    public LoanRequest() {
+
+    private Long bookId;
+    private Long memberId;
+    private LocalDate loanDate;
+    private LocalDate returnDate;
+
+    public Long getBookId() {
+        return bookId;
     }
-    public LoanRequest(LoanId id, String loanDate, String returnDate) {
-        this.id = id;
-        this.loanDate = loanDate;
-        this.returnDate = returnDate;
+
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
     }
-    public LoanId getId() {
-        return id;
+
+    public Long getMemberId() {
+        return memberId;
     }
-    
-    
-    public String getLoanDate() {
+
+    public void setMemberId(Long memberId) {
+        this.memberId = memberId;
+    }
+
+    public LocalDate getLoanDate() {
         return loanDate;
     }
-  
 
-    public String getReturnDate() {
+    public void setLoanDate(LocalDate loanDate) {
+        this.loanDate = loanDate;
+    }
+
+    public LocalDate getReturnDate() {
         return returnDate;
     }
 
-
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
+    }
 }

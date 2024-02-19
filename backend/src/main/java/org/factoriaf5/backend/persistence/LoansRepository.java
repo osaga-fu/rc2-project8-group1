@@ -1,5 +1,8 @@
 package org.factoriaf5.backend.persistence;
 
-public class LoansRepository {
-    
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface LoansRepository extends JpaRepository<Loan, LoanId> {
 }

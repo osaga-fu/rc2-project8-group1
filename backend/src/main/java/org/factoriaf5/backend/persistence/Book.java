@@ -1,7 +1,10 @@
 package org.factoriaf5.backend.persistence;
 
 import java.util.List;
+import java.util.Set;
+
 import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,10 +21,11 @@ public class Book {
     private String author;
     private String isbn;
     private String sectionCode;
+    @Column(columnDefinition = "boolean default false")
     private boolean loaned;
 
-    @OneToMany
-    private List<Loan> loans;
+    @OneToMany(mappedBy = "book")
+    private Set<Loan> loans;
 
     public Long getBookId() {
         return bookId;
