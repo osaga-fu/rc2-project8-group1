@@ -12,6 +12,7 @@
   font-weight: bold;
   justify-content: center;
   cursor: pointer;
+  margin-bottom: 2rem;
 }
 
 .p-dialog .p-dialog-content,

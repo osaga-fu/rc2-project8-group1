@@ -32,6 +32,7 @@ export const Aside = () => {
         AÑADIR LIBRO
       </button>
       <Dialog
+
         visible={visible}
         style={{ width: "50vw" }}
         onHide={() => setVisible(false)}
@@ -48,6 +49,31 @@ export const Aside = () => {
           </button>
         </form>
       </Dialog>
+
+      <button className="buttonAddBook" onClick={() => setVisible(true)}>
+        <img src="../../../src/imgs/User Account.svg" alt="Icono socios" />
+        AÑADIR SOCIO
+      </button>
+      <Dialog
+
+        visible={visible}
+        style={{ width: "50vw" }}
+        onHide={() => setVisible(false)}
+        className="addDialog"
+      >
+        <form className="addForm" onSubmit={handleSubmit}>
+          <input name="firstName"type="text" placeholder="Nombre" />
+          <input name="lastName" type="text" placeholder="Apellidos" />
+          <input name="dni" type="text" placeholder="DNI" />
+          <input name="email" type="text" placeholder="Email" />
+          
+          <button type="submit">
+            <img src="../../../src/imgs/User Account.svg" alt="Icono socios" />
+            ACEPTAR
+          </button>
+        </form>
+      </Dialog>
     </div>
   );
 };
+
