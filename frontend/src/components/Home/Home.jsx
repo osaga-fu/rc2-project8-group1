@@ -1,15 +1,25 @@
-import { Header } from "../Header/Header";
+
 import { List } from "../List/List";
 import "./Home.css";
 import { Aside } from "../Aside/Aside";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   return (
     <>
-      <Header></Header>
       <div className="mainContainer">
         <Aside></Aside>
-        <List></List>
+        <div className="section">
+          <div className="sectionButtons">
+            <Link to={"/"}>
+              <button className="bgCream">Catálogo</button>
+            </Link>
+            <Link to={"/members"}>
+              <button className="bgGreen">Socios</button>
+            </Link>
+          </div>
+          <List />
+        </div>
       </div>
     </>
   );

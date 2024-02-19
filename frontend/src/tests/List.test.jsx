@@ -1,11 +1,28 @@
 import { render, fireEvent, screen } from "@testing-library/react";
 import { List } from "../components/List/List";
 import { test } from "vitest";
+import { setupServer } from "msw/node";
+import { handlers } from "./handlers";
+import userEvent from "@testing-library/user-event";
 
-test("simula una búsqueda en la aplicación", () => {
+const server = setupServer(...handlers);
+
+test("realiza una búsqueda y muestra los resultados", async () => {
   render(<List />);
 
-  const inputElement = screen.getByPlaceholderText("Buscar libro...");
-  fireEvent.change(inputElement, { target: { value: "Harry Potter" } });
-  expect(inputElement.value).toBe("Harry Potter");
+  const input = screen.getByPlaceholderText("Buscar libro...");
+  userEvent.type(input, "harry");
+  const button = screen.getByAltText("icono buscador");
+
+  userEvent.click(button);
+
+  expect(
+    await screen.findByText(/Harry Potter y la Piedra Filosofal/)
+  ).toBeInTheDocument();
+  expect(
+    screen.getByText(/Harry Potter y el Prisionero de Azkaban/)
+  ).toBeInTheDocument();
+  expect(
+    screen.getByText(/Harry Potter y la Cámara de los Secretos/)
+  ).toBeInTheDocument();
 });

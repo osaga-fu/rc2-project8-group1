@@ -11,29 +11,19 @@ import jakarta.persistence.Id;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long book_id;
+    private Long bookId;
     private String title;
     private String author;
     private String isbn;
-    private String section_code;
+    private String sectionCode;
+    private boolean loaned;
 
-    public Book() {
+    public Long getBookId() {
+        return bookId;
     }
 
-    public Book(Long book_id, String title, String author, String isbn, String section_code) {
-        this.book_id = book_id;
-        this.title = title;
-        this.author = author;
-        this.isbn = isbn;
-        this.section_code = section_code;
-    }
-
-    public Long getBook_id() {
-        return book_id;
-    }
-
-    public void setBook_id(Long book_id) {
-        this.book_id = book_id;
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
     }
 
     public String getTitle() {
@@ -60,11 +50,32 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public String getSection_code() {
-        return section_code;
+    public String getSectionCode() {
+        return sectionCode;
     }
 
-    public void setSection_code(String section_code) {
-        this.section_code = section_code;
+    public void setSectionCode(String sectionCode) {
+        this.sectionCode = sectionCode;
     }
+
+    public boolean isLoaned() {
+        return loaned;
+    }
+
+    public void setLoaned(boolean loaned) {
+        this.loaned = loaned;
+    }
+
+    public Book(Long bookId, String title, String author, String isbn, String sectionCode, boolean loaned) {
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.sectionCode = sectionCode;
+        this.loaned = loaned;
+    }
+
+    public Book() {
+    }
+
 }
