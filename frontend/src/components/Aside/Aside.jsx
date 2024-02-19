@@ -51,7 +51,7 @@ export const Aside = () => {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
     if (!data.firstName || !data.lastName || !data.dni || !data.email) {
-      setErrorMessageMembers("Error al agregar el libro");
+      setErrorMessageMembers("Error al agregar el socio");
       return;
     }
     try {
@@ -68,12 +68,12 @@ export const Aside = () => {
         setErrorMessageMembers("");
         setShowFormMembers(false);
       } else {
-        setErrorMessageMembers("Error al agregar el libro");
+        setErrorMessageMembers("Error al agregar el socio");
         setSuccessMessageMembers("");
       }
     } catch (error) {
       console.error("Error al buscar", error);
-      setErrorMessageMembers("Error al agregar el libro");
+      setErrorMessageMembers("Error al agregar el socio");
       setSuccessMessageMembers("");
     }
     setVisibleMembers(true);
