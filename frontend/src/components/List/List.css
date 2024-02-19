@@ -1,4 +1,3 @@
-
 .listContainer {
   width: 130rem;
   background-color: var(--crema);
@@ -22,7 +21,6 @@
 .searchInput {
   width: 110rem;
   border-radius: 0 1rem 1rem 0;
-
 }
 
 .searchInput::placeholder,
@@ -35,7 +33,7 @@
 .searchInput {
   height: 6.4rem;
   background-color: var(--marron);
-  border: none;   
+  border: none;
 }
 
 .list {
@@ -61,7 +59,7 @@
 }
 
 ul hr {
-height: 0.3rem;
-background-color: var(--marron);
-border: none;
+  height: 0.3rem;
+  background-color: var(--marron);
+  border: none;
 }

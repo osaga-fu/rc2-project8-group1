@@ -5,13 +5,11 @@
   list-style: none;
   text-decoration: none;
   outline: none;
-
 }
 
 html {
   font-size: 62.5%;
   font-family: var(--mainfont);
-  
 }
 
 :root {
@@ -26,11 +24,8 @@ html {
   --negro: #4f4940;
   --mainfont: Inter, sans-serif;
   --titlefont: "Italianno";
-    
-  }
-
-body{
-  background-color: var(--marron);
-  
 }
 
+body {
+  background-color: var(--marron);
+}
