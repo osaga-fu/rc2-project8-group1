@@ -1,6 +1,5 @@
 package org.factoriaf5.backend.persistence;
 
-import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -20,9 +19,6 @@ public class Member {
     private String lastName;
     private String dni;
     private String email;
-
-    @OneToMany(mappedBy="member")
-    private Set<Loan> loans;
 
     public Member() {
     }

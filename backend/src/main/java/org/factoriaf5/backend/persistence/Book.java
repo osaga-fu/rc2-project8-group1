@@ -1,6 +1,5 @@
 package org.factoriaf5.backend.persistence;
 
-import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Table;
@@ -24,8 +23,7 @@ public class Book {
     @Column(columnDefinition = "boolean default false")
     private boolean loaned;
 
-    @OneToMany(mappedBy = "book")
-    private Set<Loan> loans;
+
 
     public Long getBookId() {
         return bookId;
