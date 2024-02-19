@@ -51,7 +51,7 @@ public class LoanController {
 
         Loan loan = new Loan();
         loan.setBook(book);
-        ;
+        
         loan.setMember(member);
         loan.setLoanDate(request.getLoanDate());
         loan.setReturnDate(request.getReturnDate());
@@ -61,6 +61,7 @@ public class LoanController {
 
     @GetMapping("/loans/{id}")
     public ResponseEntity<LoanResponse> getLoansById(@PathVariable Long id) {
+        @SuppressWarnings("null")
         Optional<Loan> optionalLoan = loansRepository.findById(id);
         if (optionalLoan.isPresent()) {
             Loan existingLoan = optionalLoan.get();

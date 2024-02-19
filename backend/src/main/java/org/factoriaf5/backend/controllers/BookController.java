@@ -43,6 +43,7 @@ public class BookController {
 
     @GetMapping("/books/{id}")
     public ResponseEntity<BookResponse> getBookById(@PathVariable Long id) {
+        @SuppressWarnings("null")
         Optional<Book> optionalBook = repository.findById(id);
         if (optionalBook.isPresent()) {
             Book existingBook = optionalBook.get();
