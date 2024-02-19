@@ -1,19 +1,23 @@
 package org.factoriaf5.backend.persistence;
 
-import jakarta.persistence.EmbeddedId;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 
 
 @Entity
 public class Loan {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long loanId;
     private String loanDate;
     private String returnDate;
 
-    @EmbeddedId
-    private LoanId id;
+   
 
     @ManyToOne
     @MapsId("bookId")
@@ -22,16 +26,22 @@ public class Loan {
     @ManyToOne
     @MapsId("memberId")
     private Member member;
-    
-    public Loan(String loanDate, String returnDate, LoanId id, Book book, Member member) {
-        this.loanDate = loanDate;
-        this.returnDate = returnDate;
-        this.id = id;
-        this.book = book;
-        this.member = member;
-    }
 
     public Loan() {
+    }
+
+    public Loan(Long loanId, String loanDate, String returnDate) {
+        this.loanId = loanId;
+        this.loanDate = loanDate;
+        this.returnDate = returnDate;
+    }
+
+    public Long getLoanId() {
+        return loanId;
+    }
+
+    public void setLoanId(Long loanId) {
+        this.loanId = loanId;
     }
 
     public String getLoanDate() {
@@ -50,14 +60,6 @@ public class Loan {
         this.returnDate = returnDate;
     }
 
-    public LoanId getId() {
-        return id;
-    }
-
-    public void setId(LoanId id) {
-        this.id = id;
-    }
-
     public Book getBook() {
         return book;
     }
@@ -73,5 +75,7 @@ public class Loan {
     public void setMember(Member member) {
         this.member = member;
     }
+    
+    
 }
     

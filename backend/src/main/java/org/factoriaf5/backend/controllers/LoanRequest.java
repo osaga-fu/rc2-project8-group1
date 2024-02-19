@@ -1,32 +1,31 @@
 package org.factoriaf5.backend.controllers;
 
-import org.factoriaf5.backend.persistence.LoanId;
+
 
 public class LoanRequest {
-    private LoanId id;
+    private Long loanId;
     private String loanDate;
     private String returnDate;
-   
+    
     public LoanRequest() {
     }
-    public LoanRequest(LoanId id, String loanDate, String returnDate) {
-        this.id = id;
+   
+    public LoanRequest(Long loanId, String loanDate, String returnDate) {
+        this.loanId = loanId;
         this.loanDate = loanDate;
         this.returnDate = returnDate;
     }
-    public LoanId getId() {
-        return id;
+
+    public Long getLoanId() {
+        return loanId;
     }
-    
-    
+
     public String getLoanDate() {
         return loanDate;
     }
-  
 
     public String getReturnDate() {
         return returnDate;
     }
-
-
+    
 }
